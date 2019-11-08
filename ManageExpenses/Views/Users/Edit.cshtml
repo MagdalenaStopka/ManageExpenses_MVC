@@ -1,0 +1,15 @@
+﻿@model ManageExpenses.Models.EditUserModel
+
+@using (Html.BeginForm())
+{
+	@Html.HiddenFor(x => x.Id)
+	@Html.LabelFor(x => x.FirstName, "Imię")
+	@Html.TextBoxFor(x => x.FirstName, new { @class="form-control" })
+	@Html.LabelFor(x => x.LastName, "Nazwisko")
+	@Html.TextBoxFor(x => x.LastName)
+	@Html.LabelFor(x => x.Password, "Hasło")
+	@Html.PasswordFor(x => x.Password)
+
+	<input type="submit" />
+	<input type="reset" />
+}

@@ -1,0 +1,44 @@
+﻿@model ManageExpenses.Models.AddUserModel
+
+<h3>Formularz dodawania użytkownika</h3>
+
+<form method="POST">
+	<div class="form-group">
+		@Html.LabelFor(x => x.FirstName, "Imię")
+
+		@Html.TextBoxFor(x => x.FirstName, new {@class = "form-control", placeholder = "Imię" })
+		@Html.ValidationMessageFor(x => x.FirstName)
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.LastName, "Nazwisko")
+
+		@Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Nazwisko" })
+		@Html.ValidationMessageFor(x => x.LastName)
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.Login, "Login")
+
+		@Html.TextBoxFor(x => x.Login, new { @class = "form-control", placeholder = "Login" })
+		@Html.ValidationMessageFor(x => x.Login)
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.Password, "Hasło")
+
+		@Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+		@Html.ValidationMessageFor(x => x.Password)
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(x => x.DateOfBirth, "Data urodzenia")
+
+		@Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control", placeholder = "Imię" })
+	</div>
+
+	@Html.ValidationSummary()
+
+	<input class="btn btn-primary" type="submit" value="Wyślij" />
+	<input class="btn btn-default" type="reset" value="Wyczyść" />
+</form>
