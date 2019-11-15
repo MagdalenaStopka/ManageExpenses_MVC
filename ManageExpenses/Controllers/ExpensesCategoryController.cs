@@ -1,4 +1,5 @@
 ﻿using ManageExpenses.Models;
+using ManageExpenses.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,21 @@ using System.Web.Mvc;
 
 namespace ManageExpenses.Controllers
 {
-    public class ExpensesCategoryController :Controller
+    public class ExpensesCategoryController : Controller
     {
+        private IExpenseCategoryRepository _repository;
+
+        public ExpensesCategoryController(IExpenseCategoryRepository repository)
+        {
+            _repository = repository;
+        }
         [HttpGet]
         public ActionResult Add()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Add (AddExpenseCategoryModel model)
+        public ActionResult Add(AddExpenseCategoryModel model)
         {
             return View();
         }
@@ -23,12 +30,22 @@ namespace ManageExpenses.Controllers
         [HttpGet]
         public ActionResult Edit(long id)
         {
-            return View();
+            EditExpenseCategoryModel model = _repository.GetCategoryById(id);
+            return View(model);
         }
         [HttpPost]
         public ActionResult Edit(EditExpenseCategoryModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _repository.Edit(model);
+
+                return View();
+            }
+            else
+            {
+                return View(model);
+            }
         }
     }
 }

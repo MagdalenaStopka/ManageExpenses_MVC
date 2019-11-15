@@ -13,5 +13,7 @@ namespace ManageExpenses.Repositories
         void Add(AddExpenseCategoryModel model);
         void Edit(EditExpenseCategoryModel model);
         ExpenseCategory Get(long categoryId);
+        EditExpenseCategoryModel GetCategoryById(long id);
+        IEnumerable<ExpenseCategory> GetAllCategories();
     }
 }

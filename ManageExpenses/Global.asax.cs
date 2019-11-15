@@ -27,6 +27,10 @@ namespace ManageExpenses
 		{
 			var kernel =  new StandardKernel();
 			kernel.Bind<IUserRepository>().To<UserInMemoryRepository>().InSingletonScope();
+            kernel.Bind<IExpenseCategoryRepository>().To<ExpenseCategoryInMemoryRepository>()
+                .InSingletonScope();
+            kernel.Bind<IExpenseRepository>().To<ExpenseInMemoryRepository>()
+                .InSingletonScope();
 
 
 			return kernel;
