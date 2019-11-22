@@ -1,0 +1,12 @@
+﻿@model ManageExpenses.Models.DeleteExpenseModel
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div>
+        Czy na pewno chcesz usunąć wydatek?
+    </div>
+    <input type="submit" class="btn btn-primary" value="Tak" />
+}

@@ -54,6 +54,24 @@ namespace ManageExpenses.Repositories
         {
             return _categories;
         }
+        public IEnumerable<ExpenseCategoryListItemModel> GetAllExpenseCategories()
+        {
+            return _categories.Select(c => new ExpenseCategoryListItemModel
+            {
+             Id =c.Id,
+             Name =c.Name
+            });
+        }
+        private long GetId()
+        {
+            if (_categories.Count > 0)
+            {
+                return _categories.Max(x => x.Id) + 1;
+ 
+            }
+
+            return 1;
+        }
 
         public EditExpenseCategoryModel GetCategoryById(long id)
         {
@@ -67,16 +85,13 @@ namespace ManageExpenses.Repositories
 
         }
 
-        private long GetId()
+        public void Update(EditExpenseCategoryModel model)
         {
-            if (_categories.Count > 0)
-            {
-                return _categories.Max(x => x.Id) + 1;
+            var category = _categories.Where(c => c.Id == model.Id).Single();
 
-
-            }
-
-            return 1;
+            category.Name = model.Name;
+  
         }
+
     }
 }

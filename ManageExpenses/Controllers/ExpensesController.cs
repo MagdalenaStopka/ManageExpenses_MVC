@@ -40,21 +40,43 @@ namespace ManageExpenses.Controllers
 		{if(ModelState.IsValid)
             {
                 _repository.Add(model);
-                return View(model);
+                return RedirectToAction("List");
             }
             return View(model);
 		}
 
 		[HttpGet]
-		public ActionResult Delete()
+		public ActionResult Delete(long id)
 		{
-			return View();
+			var model = new DeleteExpenseModel
+            { 
+				Id = id
+			};
+
+			return View(model);
 		}
 
 		[HttpPost]
-		public ActionResult Delete(long id)
+		public ActionResult Delete(DeleteExpenseModel model)
 		{
-			return View();
+            if (ModelState.IsValid)
+            {
+                _repository.Remove(model.Id);
+                return RedirectToAction("List");
+            }
+			return View(model);
+
+			//return RedirectToAction("List");
 		}
+
+        [HttpGet]
+        public ActionResult List()
+        {
+
+            var expensesLists = _repository.GetExpensesForCurrentUser();
+
+            return View(expensesLists);
+
+        }
 	}
 }

@@ -1,0 +1,12 @@
+﻿@model ManageExpenses.Models.AddExpenseCategoryModel
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, "Kategoria wydatku")
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    
+    <input type="submit" class="btn btn-primary" />
+}

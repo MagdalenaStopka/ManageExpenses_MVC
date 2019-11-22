@@ -19,12 +19,23 @@ namespace ManageExpenses.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            AddExpenseCategoryModel model = new AddExpenseCategoryModel();
+
+            return View(model);
         }
         [HttpPost]
         public ActionResult Add(AddExpenseCategoryModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _repository.Add(model);
+
+                return RedirectToAction("List");
+            }
+            else
+            {
+                return View(model);
+            }
         }
 
         [HttpGet]
@@ -38,14 +49,22 @@ namespace ManageExpenses.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.Edit(model);
+                _repository.Update(model);
 
-                return View();
+                return RedirectToAction("List");
             }
             else
             {
                 return View(model);
             }
+        }
+
+        [HttpGet]
+        public ActionResult List()
+        {
+            var expenseCategoriesLists = _repository.GetAllExpenseCategories();
+
+            return View(expenseCategoriesLists);
         }
     }
 }

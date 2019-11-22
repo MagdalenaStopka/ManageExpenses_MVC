@@ -18,8 +18,21 @@ namespace ManageExpenses.Repositories
         {
             _userRepository = userRepository;
             _categoryRepository = categoryRepository;
+
+
+            Expense expense = new Expense
+            {
+                Id=1,
+                Name="Wydatek 1",
+                Value=100,
+                Category= _categoryRepository.Get(1),
+                User= _userRepository.Get(1)
+
+            };
+            _expenses.Add(expense);
         }
         private IList<Expense> _expenses = new List<Expense>();
+        
 
         public void Add(AddExpenseModel model)
         {
@@ -56,6 +69,17 @@ namespace ManageExpenses.Repositories
             }
 
             return 1;
+        }
+
+        public IEnumerable<ExpenseListItemModel> GetExpensesForCurrentUser()
+        {
+            return _expenses.Select(e => new ExpenseListItemModel
+            {
+                Id = e.Id,
+                Name = e.Name,
+                CategoryName = e.Category.Name,
+                Value =e.Value
+            });
         }
     }
 }
