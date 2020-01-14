@@ -15,9 +15,9 @@ namespace ManageExpenses.Repositories
         void Update(EditExpenseCategoryModel model);
        
 
-        ExpenseCategory Get(long categoryId);
+        //ExpenseCategory Get(long categoryId);
         EditExpenseCategoryModel GetCategoryById(long id);
         IEnumerable<ExpenseCategory> GetAllCategories();
-        IEnumerable<ExpenseCategoryListItemModel> GetAllExpenseCategories();
+        //IEnumerable<ExpenseCategoryListItemModel> GetAllExpenseCategories();
     }
 }

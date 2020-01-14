@@ -21,7 +21,7 @@ namespace ManageExpenses.Models
 		//[Required(ErrorMessage = "Hasło jest wymagane")]
 		[PasswordStrength(ErrorMessage ="Hasło nie spełnia polityki bezpieczeństwa")]
 		public string Password { get; set; }
-
+        [DataType(DataType.Date)]
 		public DateTime DateOfBirth { get; set; }
 	}
 }

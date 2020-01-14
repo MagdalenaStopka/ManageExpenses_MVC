@@ -12,7 +12,7 @@ namespace ManageExpenses.Repositories
 	{
 		void Add(AddUserModel model);
 		EditUserModel GetUserById(long id);
-        User Get(long userId);
+        //User Get(long userId);
 		void Update(EditUserModel model);
 		void Delete(long id);
 		IEnumerable<UserListItemModel> GetAllUsers();

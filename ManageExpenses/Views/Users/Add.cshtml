@@ -34,7 +34,7 @@
 	<div class="form-group">
 		@Html.LabelFor(x => x.DateOfBirth, "Data urodzenia")
 
-		@Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control", placeholder = "Imię" })
+		@Html.EditorFor(x => x.DateOfBirth, new { @class = "form-control", placeholder = "Imię" })
 	</div>
 
 	@Html.ValidationSummary()

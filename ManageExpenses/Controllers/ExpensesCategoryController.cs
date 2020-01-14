@@ -62,7 +62,7 @@ namespace ManageExpenses.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            var expenseCategoriesLists = _repository.GetAllExpenseCategories();
+            var expenseCategoriesLists = _repository.GetAllCategories();
 
             return View(expenseCategoriesLists);
         }

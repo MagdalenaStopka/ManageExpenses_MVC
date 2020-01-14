@@ -8,5 +8,6 @@ namespace ManageExpenses.Repositories
 		void Add(AddExpenseModel model);
 		void Remove(long id);
         IEnumerable<ExpenseListItemModel> GetExpensesForCurrentUser();
-	}
+        IEnumerable<ExpenseListItemModel> GetExpensesForCurrentUser(long categoryId);
+    }
 }

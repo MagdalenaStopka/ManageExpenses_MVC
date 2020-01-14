@@ -166,36 +166,15 @@
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="DB\ExpenseCategories.cs">
-      <DependentUpon>MenageExpensesDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Expenses.cs">
-      <DependentUpon>MenageExpensesDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\MenageExpensesDbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MenageExpensesDbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\MenageExpensesDbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MenageExpensesDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\MenageExpensesDbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MenageExpensesDbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Users.cs">
-      <DependentUpon>MenageExpensesDbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\ExpenseCategory.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inftrastructure\CurrentUserProvider.cs" />
+    <Compile Include="Inftrastructure\ICurrentUserProvider.cs" />
+    <Compile Include="Inftrastructure\ManageExpensesContext.cs" />
     <Compile Include="Inftrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Inftrastructure\Validators\PasswordStrengthAttribute.cs" />
     <Compile Include="Models\AddExpenseCategoryModel.cs" />
@@ -209,7 +188,9 @@
     <Compile Include="Models\ExpenseListItemModel.cs" />
     <Compile Include="Models\UserListItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ExpenseCategoryInDbRepository.cs" />
     <Compile Include="Repositories\ExpenseCategoryInMemoryRepository.cs" />
+    <Compile Include="Repositories\ExpenseInDbRepository.cs" />
     <Compile Include="Repositories\ExpenseInMemoryRepository.cs" />
     <Compile Include="Repositories\IExpenseCategoryRepository.cs" />
     <Compile Include="Repositories\IExpenseRepository.cs" />
@@ -220,16 +201,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DB\MenageExpensesDbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MenageExpensesDbModel.Context.cs</LastGenOutput>
-      <DependentUpon>MenageExpensesDbModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DB\MenageExpensesDbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MenageExpensesDbModel.edmx</DependentUpon>
-      <LastGenOutput>MenageExpensesDbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -238,13 +209,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="DB\MenageExpensesDbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MenageExpensesDbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DB\MenageExpensesDbModel.edmx.diagram">
-      <DependentUpon>MenageExpensesDbModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
