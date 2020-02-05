@@ -1,0 +1,12 @@
+﻿@model ManageExpenses.Models.ExpenseListItemModel
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.CategoryName</td>
+    <td>@Model.Value zl</td>
+    <td>
+        <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", new {Model.Id})">
+            <i class="glyphicon glyphicon-remove"></i> Usuń
+        </a>
+    </td>
+</tr>

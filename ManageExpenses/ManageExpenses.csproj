@@ -246,6 +246,8 @@
     <Content Include="Views\ExpensesCategory\Delete.cshtml" />
     <Content Include="Views\Expenses\Delete.cshtml" />
     <Content Include="Views\Expenses\List.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AddExpenseModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ExpenseListItemModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

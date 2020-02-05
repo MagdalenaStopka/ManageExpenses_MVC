@@ -17,13 +17,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var category in Model)
             {
                 <tr>
                     <td>@item.Name</td>
                     
                     <td>
-                        <a class="btn btn-primary btn-sm" href="/ExpensesCategory/Edit/@item.Id">
+                        <a  href="@Url.Action("Edit", new { category.Id })" class="btn btn-primary btn-sm">
                             <i class="glyphicon glyphicon-edit"></i> Edytuj
                         </a>
                        
@@ -44,7 +44,7 @@ else
 
 
 <div>
-    <a href="/ExpensesCategory/Add" class="btn btn-primary">
+    <a href="@Url.Action("Add")" class="btn btn-primary">
         <i class="glyphicon glyphicon-plus"></i> Dodaj nową kategorię
     </a>
 </div>

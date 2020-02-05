@@ -2,7 +2,7 @@
 
 @using (Html.BeginForm())
 {
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(m => m.Name, "Wydatek")
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
@@ -13,7 +13,8 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Value, "Wartość")
         @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
-    </div>
+    </div>*@
 
+    @Html.EditorForModel()
     <input type="submit" class="btn btn-primary" />
 }

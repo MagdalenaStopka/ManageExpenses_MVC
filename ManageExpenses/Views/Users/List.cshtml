@@ -25,10 +25,10 @@
 					<td>@item.LastName</td>
 					<td>@item.Login</td>
 					<td>
-						<a class="btn btn-primary btn-sm" href="/Users/Edit/@item.Id">
+						<a class="btn btn-primary btn-sm" href="@Url.Action("Edit", new { item.Id })" >
 							<i class="glyphicon glyphicon-edit"></i> Edytuj
 						</a>
-						<a class="btn btn-danger btn-sm" href="/Users/Delete/@item.Id">
+						<a class="btn btn-danger btn-sm" href=""@Url.Action("Delete", new { item.Id })"">
 							<i class="glyphicon glyphicon-remove"></i> Usuń
 						</a>
 					</td>
@@ -48,7 +48,7 @@ else
 
 
 <div>
-	<a href="/Users/Add" class="btn btn-primary">
+	<a href="@Url.Action("Add")" class="btn btn-primary">
 		<i class="glyphicon glyphicon-plus"></i> Dodaj użytkownika
 	</a>
 </div>
